@@ -1,2 +1,2 @@
-# salmon-cookie-shop
-Salmon Cookie Shop Statistics
+# Cookie Stand
+Cookie Stand Statistics
