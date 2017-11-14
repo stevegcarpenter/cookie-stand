@@ -1,0 +1,57 @@
+* {
+    font-family:  helvetica, sans-serif;
+}
+
+h1 {
+    font-family: "Roboto Slab";
+    color: #ff8b31;
+}
+
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #5a1d1d;
+}
+
+body {
+    background-color: white;
+}
+
+p {
+    width: 80%;
+}
+
+#family-pic {
+    height: 300px;
+}
+
+#menu-list {
+    background-color: #2120242c;
+    width: 80%;
+    color: #301313;
+}
+
+header, footer {
+    display: inline-block;
+    width: 80%;
+    padding-right: 20px;
+    padding-left: 20px;
+    background: #727272;
+    color: #ffffff;
+}
+
+#logo-image {
+    display: block;
+    float: left;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.nav-menu ul {
+    text-align: right;
+    list-style: none;
+}
+
+.nav-menu ul li {
+    display: inline;
+}
