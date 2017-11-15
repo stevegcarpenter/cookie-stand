@@ -18,13 +18,19 @@ function amendStoreConstructor() {
     return randomNum;
   };
 
-  Store.prototype.ranCookieCount = function() {
+  Store.prototype.ranCookieCount = function () {
     var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiesPerSale);
     console.log('ranCookieCount:', ranCookieCount);
     return ranCookieCount;
   };
 
-  Store.prototype.generateProjections = function() {
+  Store.prototype.render = function (tableElement) {
+    this.generateProjections();
+    console.log(this.storeName + ' cookie projections:', this.cookiesPerHour);
+    appendTableRow(tableElement, this.storeName, this.cookiesPerHour);
+  };
+
+  Store.prototype.generateProjections = function () {
     // Shop Hours: 6am - 8pm --> 14 hours
     console.log('Generating cookie projections:', this.storeName);
     for (var i = 0; i < 14; i++) {
@@ -61,6 +67,24 @@ function startSalesTable(headRowList) {
   return table;
 }
 
+function appendTableRow(tableElement, rowName, rowDataList) {
+  // Create and link a table row to the table
+  var tableRow = document.createElement('tr');
+  tableElement.appendChild(tableRow);
+
+  // Add dat name as a table head so its bold
+  var tableHead = document.createElement('th');
+  tableHead.textContent = rowName;
+  tableRow.appendChild(tableHead);
+
+  // Create, populate, and attach the table data
+  for (var i = 0; i < rowDataList.length; i++) {
+    var tableData = document.createElement('td');
+    tableData.textContent = rowDataList[i];
+    tableRow.appendChild(tableData);
+  }
+}
+
 function getStoreList() {
   return [
     new Store('1st and Pike', 'first-and-pike', 23, 65, 6.3),
@@ -74,29 +98,49 @@ function getStoreList() {
 function displayStoreStats() {
   var storeList = getStoreList();
   console.log('Store list:', storeList);
+  var tableColumns = [
+    '6:00am',
+    '7:00am',
+    '8:00am',
+    '9:00am',
+    '10:00am',
+    '11:00am',
+    '12:00pm',
+    '1:00pm',
+    '2:00pm',
+    '3:00pm',
+    '4:00pm',
+    '5:00pm',
+    '6:00pm',
+    '7:00pm',
+    'Daily Location Total',
+  ];
+  var totalCookiesPerHour = Array(14).fill(0);
+  var totalDailyCookies = 0;
+
+  // Create a table and link it to the correct section
+  var tableElement = startSalesTable(tableColumns);
+  var sectionElement = document.getElementById('projected-sales-section')
+  sectionElement.appendChild(tableElement);
 
   // Iterate through all the stores
   storeList.forEach(function (store) {
     // Generate/store all the projected cookie sales
     console.log('store:', store.Name);
-    store.generateProjections();
-    console.log(store.storeName + ' cookie projections:', store.cookiesPerHour);
 
-    // Obtain the ul tag specific to this store
-    var unorderedList = document.getElementById(store.storeListId);
-    console.log('unorderedList:', unorderedList);
+    // Render the sales projections to our new table
+    store.render(tableElement);
 
-    var listItems = unorderedList.getElementsByTagName('li');
-
-    // Set the hourly projection list items
-    for (var i = 0; i < listItems.length - 1; i++) {
-      listItems[i].textContent += ' '.concat(store.cookiesPerHour[i]).concat(' cookies');
+    // Add per hour cookie sales to total
+    for (var i = 0; i < store.cookiesPerHour.length; i++) {
+      totalCookiesPerHour[i] += store.cookiesPerHour[i];
     }
-
-    // Populate the Total Count list item
-    listItems[listItems.length - 1].textContent += ' '.concat(store.cookiesPerDay).concat(' cookies');
-    console.log(store.storeName + ' cookies per day:', store.cookiesPerDay);
+    totalDailyCookies += store.cookiesPerDay;
   });
+
+  // Finally, add the final line of the table
+  totalCookiesPerHour.push(totalDailyCookies);
+  appendTableRow(tableElement, 'Totals', totalCookiesPerHour);
 }
 
 // Do it!
