@@ -100,4 +100,5 @@ function displayStoreStats() {
 }
 
 // Do it!
+amendStoreConstructor();
 displayStoreStats();
