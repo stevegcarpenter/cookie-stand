@@ -9,6 +9,9 @@ function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
   this.avgCookiesPerSale = avgCookiesPerSale;
   this.cookiesPerHour = [];
   this.cookiesPerDay = 0;
+
+  // push it real good
+  stores.push(this);
 }
 
 function amendStoreConstructor() {
@@ -85,19 +88,17 @@ function appendTableRow(tableElement, rowName, rowDataList) {
   }
 }
 
-function getStoreList() {
-  return [
-    new Store('1st and Pike', 'first-and-pike', 23, 65, 6.3),
-    new Store('SeaTac Airport', 'seatac-airport', 3, 24, 1.2),
-    new Store('Seattle Center', 'seattle-center', 11, 38, 3.7),
-    new Store('Capitol Hill', 'capitol-hill', 20, 38, 2.3),
-    new Store('Alki', 'alki', 2, 16, 4.6),
-  ];
+function createStores() {
+  // These are my data
+  new Store('1st and Pike', 'first-and-pike', 23, 65, 6.3);
+  new Store('SeaTac Airport', 'seatac-airport', 3, 24, 1.2);
+  new Store('Seattle Center', 'seattle-center', 11, 38, 3.7);
+  new Store('Capitol Hill', 'capitol-hill', 20, 38, 2.3);
+  new Store('Alki', 'alki', 2, 16, 4.6);
 }
 
 function displayStoreStats() {
-  var storeList = getStoreList();
-  console.log('Store list:', storeList);
+  console.log('Store list:', stores);
   var tableColumns = [
     '6:00am',
     '7:00am',
@@ -118,13 +119,16 @@ function displayStoreStats() {
   var totalCookiesPerHour = Array(14).fill(0);
   var totalDailyCookies = 0;
 
+  // Build the object list - in this case stores
+  createStores();
+
   // Create a table and link it to the correct section
   var tableElement = startSalesTable(tableColumns);
   var sectionElement = document.getElementById('projected-sales-section')
   sectionElement.appendChild(tableElement);
 
   // Iterate through all the stores
-  storeList.forEach(function (store) {
+  stores.forEach(function (store) {
     // Generate/store all the projected cookie sales
     console.log('store:', store.Name);
 
@@ -143,5 +147,6 @@ function displayStoreStats() {
 }
 
 // Do it!
+var stores = [];
 amendStoreConstructor();
 displayStoreStats();
