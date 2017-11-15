@@ -1,162 +1,47 @@
 'use strict';
 
+function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
+  this.storeName = storeName;
+  this.storeListId = storeListId;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCookiesPerSale = avgCookiesPerSale;
+  this.cookiesPerHour = [];
+  this.cookiesPerDay = 0;
+}
+
+Store.prototype.ranNumCust = function () {
+  var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+  console.log('randomNum:', randomNum);
+  return randomNum;
+};
+
+Store.prototype.ranCookieCount = function() {
+  var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiesPerSale);
+  console.log('ranCookieCount:', ranCookieCount);
+  return ranCookieCount;
+};
+
+Store.prototype.generateProjections = function() {
+  // Shop Hours: 6am - 8pm --> 14 hours
+  console.log('Generating cookie projections:', this.storeName);
+  for (var i = 0; i < 14; i++) {
+    var randomCookieCount = this.ranCookieCount();
+    this.cookiesPerHour.push(randomCookieCount);
+    console.log('Hour:', i, 'Cookies:', randomCookieCount);
+    this.cookiesPerDay += randomCookieCount;
+  }
+  console.log('Projected Cookies Per Day:', this.cookiesPerDay);
+};
+
 function getStoreList() {
-  var firstAndPike = {
-    storeName: '1st and Pike',
-    storeListId: 'first-and-pike',
-    minCust: 23,
-    maxCust: 65,
-    avgCookiePerSale: 6.3,
-    cookiesPerHour: [],
-    cookiesPerDay: 0,
-    ranNumCust: function () {
-      var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-      console.log('randomNum:', randomNum);
-      return randomNum;
-    },
-    ranCookieCount: function () {
-      var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiePerSale);
-      console.log('ranCookieCount:', ranCookieCount);
-      return ranCookieCount;
-    },
-    generateProjections: function () {
-      // Shop Hours: 6am - 8pm --> 14 hours
-      console.log('Generating cookie projections:', this.storeName);
-      for (var i = 0; i < 14; i++) {
-        var randomCookieCount = this.ranCookieCount();
-        this.cookiesPerHour.push(randomCookieCount);
-        console.log('Hour:', i, 'Cookies:', randomCookieCount);
-        this.cookiesPerDay += randomCookieCount;
-      }
-      console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-    },
-  };
-
-  var seaTacAirport = {
-    storeName: 'SeaTac Airport',
-    storeListId: 'seatac-airport',
-    minCust: 3,
-    maxCust: 24,
-    avgCookiePerSale: 1.2,
-    cookiesPerHour: [],
-    cookiesPerDay: 0,
-    ranNumCust: function () {
-      var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-      console.log('randomNum:', randomNum);
-      return randomNum;
-    },
-    ranCookieCount: function () {
-      var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiePerSale);
-      console.log('ranCookieCount:', ranCookieCount);
-      return ranCookieCount;
-    },
-    generateProjections: function () {
-      // Shop Hours: 6am - 8pm --> 14 hours
-      console.log('Generating cookie projections:', this.storeName);
-      for (var i = 0; i < 14; i++) {
-        var randomCookieCount = this.ranCookieCount();
-        this.cookiesPerHour.push(randomCookieCount);
-        console.log('Hour:', i, 'Cookies:', randomCookieCount);
-        this.cookiesPerDay += randomCookieCount;
-      }
-      console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-    },
-  };
-
-  var seattleCenter = {
-    storeName: 'Seattle Center',
-    storeListId: 'seattle-center',
-    minCust: 11,
-    maxCust: 38,
-    avgCookiePerSale: 3.7,
-    cookiesPerHour: [],
-    cookiesPerDay: 0,
-    ranNumCust: function () {
-      var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-      console.log('randomNum:', randomNum);
-      return randomNum;
-    },
-    ranCookieCount: function () {
-      var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiePerSale);
-      console.log('ranCookieCount:', ranCookieCount);
-      return ranCookieCount;
-    },
-    generateProjections: function () {
-      // Shop Hours: 6am - 8pm --> 14 hours
-      console.log('Generating cookie projections:', this.storeName);
-      for (var i = 0; i < 14; i++) {
-        var randomCookieCount = this.ranCookieCount();
-        this.cookiesPerHour.push(randomCookieCount);
-        console.log('Hour:', i, 'Cookies:', randomCookieCount);
-        this.cookiesPerDay += randomCookieCount;
-      }
-      console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-    },
-  };
-
-  var capitolHill = {
-    storeName: 'Capitol Hill',
-    storeListId: 'capitol-hill',
-    minCust: 20,
-    maxCust: 38,
-    avgCookiePerSale: 2.3,
-    cookiesPerHour: [],
-    cookiesPerDay: 0,
-    ranNumCust: function () {
-      var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-      console.log('randomNum:', randomNum);
-      return randomNum;
-    },
-    ranCookieCount: function () {
-      var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiePerSale);
-      console.log('ranCookieCount:', ranCookieCount);
-      return ranCookieCount;
-    },
-    generateProjections: function () {
-      // Shop Hours: 6am - 8pm --> 14 hours
-      console.log('Generating cookie projections:', this.storeName);
-      for (var i = 0; i < 14; i++) {
-        var randomCookieCount = this.ranCookieCount();
-        this.cookiesPerHour.push(randomCookieCount);
-        console.log('Hour:', i, 'Cookies:', randomCookieCount);
-        this.cookiesPerDay += randomCookieCount;
-      }
-      console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-    },
-  };
-
-  var alki = {
-    storeName: 'Alki',
-    storeListId: 'alki',
-    minCust: 2,
-    maxCust: 16,
-    avgCookiePerSale: 4.6,
-    cookiesPerHour: [],
-    cookiesPerDay: 0,
-    ranNumCust: function () {
-      var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-      console.log('randomNum:', randomNum);
-      return randomNum;
-    },
-    ranCookieCount: function () {
-      var ranCookieCount = this.ranNumCust() * this.avgCookiePerSale;
-      console.log('ranCookieCount:', ranCookieCount);
-      return Math.floor(ranCookieCount);
-    },
-    generateProjections: function () {
-      // Shop Hours: 6am - 8pm --> 14 hours
-      console.log('Generating cookie projections:', this.storeName);
-      for (var i = 0; i < 14; i++) {
-        var randomCookieCount = this.ranCookieCount();
-        this.cookiesPerHour.push(randomCookieCount);
-        console.log('Hour:', i, 'Cookies:', randomCookieCount);
-        this.cookiesPerDay += randomCookieCount;
-      }
-      console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-    },
-  };
-
-  return [firstAndPike, seaTacAirport, seattleCenter, capitolHill, alki];
+  return [
+    new Store('1st and Pike', 'first-and-pike', 23, 65, 6.3),
+    new Store('SeaTac Airport', 'seatac-airport', 3, 24, 1.2),
+    new Store('Seattle Center', 'seattle-center', 11, 38, 3.7),
+    new Store('Capitol Hill', 'capitol-hill', 20, 38, 2.3),
+    new Store('Alki', 'alki', 2, 16, 4.6),
+  ];
 }
 
 function displayStoreStats() {
