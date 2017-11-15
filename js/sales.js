@@ -1,5 +1,6 @@
 'use strict';
 
+// Store constructor definition
 function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
   this.storeName = storeName;
   this.storeListId = storeListId;
@@ -10,29 +11,55 @@ function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
   this.cookiesPerDay = 0;
 }
 
-Store.prototype.ranNumCust = function () {
-  var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-  console.log('randomNum:', randomNum);
-  return randomNum;
-};
+function amendStoreConstructor() {
+  Store.prototype.ranNumCust = function () {
+    var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
+    console.log('randomNum:', randomNum);
+    return randomNum;
+  };
 
-Store.prototype.ranCookieCount = function() {
-  var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiesPerSale);
-  console.log('ranCookieCount:', ranCookieCount);
-  return ranCookieCount;
-};
+  Store.prototype.ranCookieCount = function() {
+    var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiesPerSale);
+    console.log('ranCookieCount:', ranCookieCount);
+    return ranCookieCount;
+  };
 
-Store.prototype.generateProjections = function() {
-  // Shop Hours: 6am - 8pm --> 14 hours
-  console.log('Generating cookie projections:', this.storeName);
-  for (var i = 0; i < 14; i++) {
-    var randomCookieCount = this.ranCookieCount();
-    this.cookiesPerHour.push(randomCookieCount);
-    console.log('Hour:', i, 'Cookies:', randomCookieCount);
-    this.cookiesPerDay += randomCookieCount;
+  Store.prototype.generateProjections = function() {
+    // Shop Hours: 6am - 8pm --> 14 hours
+    console.log('Generating cookie projections:', this.storeName);
+    for (var i = 0; i < 14; i++) {
+      var randomCookieCount = this.ranCookieCount();
+      this.cookiesPerHour.push(randomCookieCount);
+      console.log('Hour:', i, 'Cookies:', randomCookieCount);
+      this.cookiesPerDay += randomCookieCount;
+    }
+    console.log('Projected Cookies Per Day:', this.cookiesPerDay);
+  };
+}
+
+function startSalesTable(headRowList) {
+  var table = document.createElement('table');
+
+  // Conditionally create & attach table header if headRowList was provided
+  if (headRowList) {
+    // Create a row and link it to the table
+    var tableRow = document.createElement('tr');
+    table.appendChild(tableRow)
+
+    // First, create & link an empty table head for the top left
+    let tableHead = document.createElement('th');
+    tableRow.appendChild(tableHead);
+
+    // Now, create & link remaining header columns
+    for (var i = 0; i < headRowList.length; i++) {
+      tableHead = document.createElement('th');
+      tableHead.textContent = headRowList[i];
+      tableRow.appendChild(tableHead);
+    }
   }
-  console.log('Projected Cookies Per Day:', this.cookiesPerDay);
-};
+
+  return table;
+}
 
 function getStoreList() {
   return [
