@@ -27,7 +27,7 @@ function amendStoreConstructor() {
   Store.prototype.render = function (tableElement) {
     this.generateProjections();
     console.log(this.storeName + ' cookie projections:', this.cookiesPerHour);
-    appendTableRow(tableElement, this.storeName, this.cookiesPerHour);
+    appendTableRow(tableElement, this.storeName, this.cookiesPerHour.concat(this.cookiesPerDay));
   };
 
   Store.prototype.generateProjections = function () {
@@ -139,8 +139,7 @@ function displayStoreStats() {
   });
 
   // Finally, add the final line of the table
-  totalCookiesPerHour.push(totalDailyCookies);
-  appendTableRow(tableElement, 'Totals', totalCookiesPerHour);
+  appendTableRow(tableElement, 'Totals', totalCookiesPerHour.concat(totalDailyCookies));
 }
 
 // Do it!
