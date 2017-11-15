@@ -90,11 +90,11 @@ function displayStoreStats() {
 
     // Set the hourly projection list items
     for (var i = 0; i < listItems.length - 1; i++) {
-      listItems[i].innerText += ' '.concat(store.cookiesPerHour[i]).concat(' cookies');
+      listItems[i].textContent += ' '.concat(store.cookiesPerHour[i]).concat(' cookies');
     }
 
     // Populate the Total Count list item
-    listItems[listItems.length - 1].innerText += ' '.concat(store.cookiesPerDay).concat(' cookies');
+    listItems[listItems.length - 1].textContent += ' '.concat(store.cookiesPerDay).concat(' cookies');
     console.log(store.storeName + ' cookies per day:', store.cookiesPerDay);
   });
 }
