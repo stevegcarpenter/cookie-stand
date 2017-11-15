@@ -186,3 +186,6 @@ function displayStoreStats() {
     console.log(store.storeName + ' cookies per day:', store.cookiesPerDay);
   });
 }
+
+// Do it!
+displayStoreStats();
