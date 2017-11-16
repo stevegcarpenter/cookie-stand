@@ -50,7 +50,7 @@ function startSalesTable(headRowList) {
   if (headRowList) {
     // Create a row and link it to the table
     var tableRow = document.createElement('tr');
-    table.appendChild(tableRow)
+    table.appendChild(tableRow);
 
     // First, create & link an empty table head for the top left
     let tableHead = document.createElement('th');
@@ -120,7 +120,7 @@ function displayStoreStats() {
 
   // Create a table and link it to the correct section
   var tableElement = startSalesTable(tableColumns);
-  var sectionElement = document.getElementById('projected-sales-section')
+  var sectionElement = document.getElementById('projected-sales-section');
   sectionElement.appendChild(tableElement);
 
   // Iterate through all the stores
