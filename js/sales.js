@@ -20,10 +20,10 @@ function amendStoreConstructor() {
     return ranCookieCount;
   };
 
-  Store.prototype.render = function (tableElement) {
+  Store.prototype.render = function (tableEl) {
     this.generateProjections();
     console.log(this.storeName + ' cookie projections:', this.cookiesPerHour);
-    appendTableRow(tableElement, this.storeName, this.cookiesPerHour.concat(this.cookiesPerDay));
+    appendTableRow(tableEl, this.storeName, this.cookiesPerHour.concat(this.cookiesPerDay));
   };
 
   Store.prototype.generateProjections = function () {
@@ -69,10 +69,10 @@ function startSalesTable(tableId, headRowList) {
   return table;
 }
 
-function appendTableRow(tableElement, rowName, rowDataList) {
+function appendTableRow(tableEl, rowName, rowDataList) {
   // Create and link a table row to the table
   var tableRow = document.createElement('tr');
-  tableElement.appendChild(tableRow);
+  tableEl.appendChild(tableRow);
 
   // Add dat name as a table head so its bold
   var tableHead = document.createElement('th');
@@ -127,6 +127,7 @@ function prepEventListenters() {
 
     // Make a new store
     var store = new Store(storeName, minCust, maxCust, avgCookiesPerSale);
+
     // Render the sales projections to our new table
     store.render(tableEl);
 
@@ -172,9 +173,7 @@ function displayStoreStats() {
   createStores();
 
   // Create a table and link it to the correct section
-  var tableElement = startSalesTable(TABLEID, tableColumns);
-  var sectionElement = document.getElementById('projected-sales-section');
-  sectionElement.appendChild(tableElement);
+  var tableEl = startSalesTable(TABLEID, tableColumns);
 
   // Iterate through all the stores
   stores.forEach(function (store) {
@@ -182,14 +181,14 @@ function displayStoreStats() {
     console.log('store:', store.Name);
 
     // Render the sales projections to our new table
-    store.render(tableElement);
+    store.render(tableEl);
 
     // Calculate dem totals
     calcTotalsRow(store);
   });
 
   // Finally, add the final line of the table
-  appendTableRow(tableElement, 'Totals', totalCookiesPerHour.concat(totalDailyCookies));
+  appendTableRow(tableEl, 'Totals', totalCookiesPerHour.concat(totalDailyCookies));
 }
 
 /*
