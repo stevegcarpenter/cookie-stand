@@ -89,11 +89,11 @@ function appendTableRow(tableElement, rowName, rowDataList) {
 
 function createStores() {
   // These are my data
-  new Store('1st and Pike', 'first-and-pike', 23, 65, 6.3);
-  new Store('SeaTac Airport', 'seatac-airport', 3, 24, 1.2);
-  new Store('Seattle Center', 'seattle-center', 11, 38, 3.7);
-  new Store('Capitol Hill', 'capitol-hill', 20, 38, 2.3);
-  new Store('Alki', 'alki', 2, 16, 4.6);
+  new Store('1st and Pike', 23, 65, 6.3);
+  new Store('SeaTac Airport', 3, 24, 1.2);
+  new Store('Seattle Center', 11, 38, 3.7);
+  new Store('Capitol Hill', 20, 38, 2.3);
+  new Store('Alki', 2, 16, 4.6);
 }
 
 function displayStoreStats() {
@@ -145,7 +145,9 @@ function displayStoreStats() {
   appendTableRow(tableElement, 'Totals', totalCookiesPerHour.concat(totalDailyCookies));
 }
 
-// Do it!
+/*
+ ************************** Code Execution Below *****************************
+ */
 var stores = [];
 amendStoreConstructor();
 displayStoreStats();
