@@ -108,11 +108,44 @@ function prepEventListenters() {
       avgCookiesPerSale: event.target.avgCookiesPerSale.value,
     };
 
-    console.log('INSIDE THE EVENT LISTENER!');
-    console.log(formData);
+    // Convert and store
+    var storeName = formData.storeName;
+    var minCust = parseInt(formData.minCust);
+    var maxCust = parseInt(formData.maxCust);
+    var avgCookiesPerSale = parseFloat(formData.avgCookiesPerSale);
+
+    // No point in doing anything if proper data wasn't provided
+    if (storeName === '' || isNaN(minCust) || isNaN(maxCust) || isNaN(avgCookiesPerSale)) {
+      return;
+    }
+
+    // Delete the last row, then recalculate it
+    var tableEl = document.getElementById(TABLEID);
+
+    // Delete the totals row at the bottom
+    tableEl.deleteRow(tableEl.rows.length - 1);
+
+    // Make a new store
+    var store = new Store(storeName, minCust, maxCust, avgCookiesPerSale);
+    // Render the sales projections to our new table
+    store.render(tableEl);
+
+    // Calculate the totals row
+    calcTotalsRow(store);
+
+    // Append the new totals row
+    appendTableRow(tableEl, 'Totals', totalCookiesPerHour.concat(totalDailyCookies));
   });
 
   console.log('Added the event listener to', FORMID);
+}
+
+function calcTotalsRow(store) {
+  // Add per hour cookie sales to total
+  for (var i = 0; i < store.cookiesPerHour.length; i++) {
+    totalCookiesPerHour[i] += store.cookiesPerHour[i];
+  }
+  totalDailyCookies += store.cookiesPerDay;
 }
 
 function displayStoreStats() {
@@ -134,8 +167,6 @@ function displayStoreStats() {
     '7:00pm',
     'Daily Location Total',
   ];
-  var totalCookiesPerHour = Array(14).fill(0);
-  var totalDailyCookies = 0;
 
   // Build the object list - in this case stores
   createStores();
@@ -153,11 +184,8 @@ function displayStoreStats() {
     // Render the sales projections to our new table
     store.render(tableElement);
 
-    // Add per hour cookie sales to total
-    for (var i = 0; i < store.cookiesPerHour.length; i++) {
-      totalCookiesPerHour[i] += store.cookiesPerHour[i];
-    }
-    totalDailyCookies += store.cookiesPerDay;
+    // Calculate dem totals
+    calcTotalsRow(store);
   });
 
   // Finally, add the final line of the table
@@ -167,9 +195,14 @@ function displayStoreStats() {
 /*
  ************************** Code Execution Below *****************************
  */
+// globals - not my favorite, but I'm getting lazy
 var stores = [];
+var totalCookiesPerHour = Array(14).fill(0);
+var totalDailyCookies = 0;
 const TABLEID = 'main-table';
 const FORMID = 'main-form';
+
+// Do it!
 amendStoreConstructor();
 prepEventListenters();
 displayStoreStats();
