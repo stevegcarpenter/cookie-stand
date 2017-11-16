@@ -45,8 +45,8 @@ function ranNum(min, max) {
   return randomNum;
 }
 
-function startSalesTable(headRowList) {
-  var table = document.createElement('table');
+function startSalesTable(tableId, headRowList) {
+  var table = document.getElementById(tableId);
 
   // Conditionally create & attach table header if headRowList was provided
   if (headRowList) {
@@ -96,6 +96,25 @@ function createStores() {
   new Store('Alki', 2, 16, 4.6);
 }
 
+function prepEventListenters() {
+  var formEl = document.getElementById(FORMID);
+
+  formEl.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var formData = {
+      storeName: event.target.storeName.value,
+      minCust: event.target.minCust.value,
+      maxCust: event.target.maxCust.value,
+      avgCookiesPerSale: event.target.avgCookiesPerSale.value,
+    };
+
+    console.log('INSIDE THE EVENT LISTENER!');
+    console.log(formData);
+  });
+
+  console.log('Added the event listener to', FORMID);
+}
+
 function displayStoreStats() {
   console.log('Store list:', stores);
   var tableColumns = [
@@ -122,7 +141,7 @@ function displayStoreStats() {
   createStores();
 
   // Create a table and link it to the correct section
-  var tableElement = startSalesTable(tableColumns);
+  var tableElement = startSalesTable(TABLEID, tableColumns);
   var sectionElement = document.getElementById('projected-sales-section')
   sectionElement.appendChild(tableElement);
 
@@ -149,5 +168,8 @@ function displayStoreStats() {
  ************************** Code Execution Below *****************************
  */
 var stores = [];
+const TABLEID = 'main-table';
+const FORMID = 'main-form';
 amendStoreConstructor();
+prepEventListenters();
 displayStoreStats();
