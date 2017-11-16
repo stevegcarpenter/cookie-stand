@@ -18,7 +18,35 @@
     </header>
     <main class="container">
       <section id="projected-sales-section">
+        <h1>New Stores Coming</h1>
+        <div>
+          <!-- New Store Fieldset -->
+          <fieldset id="main-fieldset">
+            <form id="main-form">
+              <legend>New Store Details</legend>
+              <label>
+                Store Name:<br>
+                <input type="text" name="storeName"><br>
+              </label>
+              <label>
+                Min Cust Per Hour:<br>
+                <input type="number" name="minCust"><br>
+              </label>
+              <label>
+                Max Cust Per Hour:<br>
+                <input type="number" name="maxCust"><br>
+              </label>
+              <label>
+                Avg Cookies Per Customer:<br>
+                <input type="number" step="any" name="avgCookiesPerSale"><br>
+              </label>
+              <button type="submit">Submit</button>
+            </form>
+          </fieldset>
+        </div>
         <h1>Cookie Stand Projected Sales</h1>
+        <!-- Sales Projectsion Table -->
+        <table id="main-table"></table>
       </section>
     </main>
     <footer>

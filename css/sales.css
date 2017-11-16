@@ -11,9 +11,10 @@ header, footer {
     color: #ffffff;
 }
 
-//.projected-sales-section {
-//    list-style: none;
-//}
+#main-fieldset {
+    display: inline-block;
+    line-height: 1.5em;
+}
 
 .nav-menu ul {
     text-align: right;
