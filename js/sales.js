@@ -1,9 +1,8 @@
 'use strict';
 
 // Store constructor definition
-function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
+function Store(storeName, minCust, maxCust, avgCookiesPerSale) {
   this.storeName = storeName;
-  this.storeListId = storeListId;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgCookiesPerSale = avgCookiesPerSale;
