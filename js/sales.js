@@ -15,14 +15,8 @@ function Store(storeName, storeListId, minCust, maxCust, avgCookiesPerSale) {
 }
 
 function amendStoreConstructor() {
-  Store.prototype.ranNumCust = function () {
-    var randomNum = Math.floor(Math.random() * (this.maxCust - this.minCust)) + this.minCust;
-    console.log('randomNum:', randomNum);
-    return randomNum;
-  };
-
   Store.prototype.ranCookieCount = function () {
-    var ranCookieCount = Math.floor(this.ranNumCust() * this.avgCookiesPerSale);
+    var ranCookieCount = Math.floor(ranNum(this.minCust, this.maxCust) * this.avgCookiesPerSale);
     console.log('ranCookieCount:', ranCookieCount);
     return ranCookieCount;
   };
@@ -44,6 +38,12 @@ function amendStoreConstructor() {
     }
     console.log('Projected Cookies Per Day:', this.cookiesPerDay);
   };
+}
+
+function ranNum(min, max) {
+  var randomNum = Math.floor(Math.random() * (max - min)) + min;
+  console.log('randomNum:', randomNum);
+  return randomNum;
 }
 
 function startSalesTable(headRowList) {
