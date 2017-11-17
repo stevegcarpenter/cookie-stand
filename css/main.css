@@ -1,52 +1,33 @@
-* {
-    font-family:  helvetica, sans-serif;
+/*
+  dark gray:   #292929;
+  gray:        #727272;
+  light gray:  #959292;
+  white:       #ffffff;
+  orange:      #ff8b31;
+*/
+header, footer {
+    display: inline-block;
+    width: 98%;
+    background: #292929;
+    color: #ffffff;
+    padding: 15px;
 }
 
 h1 {
-    font-family: "Roboto Slab";
-    color: #ff8b31;
+    font-family: "PT Sans", helvetica;
+    font-size: 24px;
+    color: #292929;
 }
 
-h2 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #5a1d1d;
+h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", helvetica;
+    font-size: 20px;
+    color: #292929;
 }
 
-body {
-    background-color: white;
-}
-
-p {
-    width: 80%;
-}
-
-#family-pic {
-    height: 300px;
-}
-
-#menu-list {
-    background-color: #2120242c;
-    width: 80%;
-    color: #301313;
-}
-
-header, footer {
-    display: inline-block;
-    width: 80%;
-    padding-right: 20px;
-    padding-left: 20px;
-    background: #727272;
-    color: #ffffff;
-}
-
-#logo-image {
-    display: block;
-    float: left;
-    height: 80px;
-    margin-bottom: 10px;
-    margin-top: 0px;
-}
-
+/*
+ * Navigation menu common between both pages
+ */
 .nav-menu ul {
     text-align: right;
     list-style: none;
@@ -54,4 +35,65 @@ header, footer {
 
 .nav-menu ul li {
     display: inline;
+}
+
+/*
+ * Logo image placed in header
+ */
+.logo-image {
+    display: block;
+    float: left;
+    height: 80px;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+/*
+ * Text used in header/footer
+ */
+.logo-text {
+    font-family: "Patua One";
+    color: #ff8b31;
+}
+
+/*
+ * Family picture on main page
+ */
+#family-pic, #shirt-pic, #fishies-pic {
+    height: 300px;
+}
+
+/*
+ * Form styling
+ */
+
+
+/*
+ * The only table is on the Sales page
+ */
+table {
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #959292;
+}
+
+/*
+ * Link styles inside header
+ */
+a.header-link:link, a.header-link:visited, a.header-link:hover {
+  text-decoration:  none;
+  font-weight:      bold;
+  background-color: #292929;
+  color:            #ff8b31;
+}
+a.header-link:hover, a.header-link:active {
+  color:            #fff;
 }
