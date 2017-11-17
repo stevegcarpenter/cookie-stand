@@ -114,9 +114,24 @@ function prepEventListenters() {
     var maxCust = parseInt(formData.maxCust);
     var avgCookiesPerSale = parseFloat(formData.avgCookiesPerSale);
 
-    // No point in doing anything if proper data wasn't provided
-    if (storeName === '' || isNaN(minCust) || isNaN(maxCust) || isNaN(avgCookiesPerSale)) {
+    // minCust must be < maxCust
+    if (minCust >= maxCust) {
+      alert('Error. Min Cust Per Hour cannot be >= Max Cust Per Hour.');
+    }
+
+    // No point in doing anything if
+    if (storeName === '') {
+      alert('Error. Must provide a store name.');
       return;
+    }
+
+    // For now, do an O(n) search through our stores array and if the store
+    // already exists, disallow adding it again.
+    for (let i = 0; i < stores.length; i++) {
+      if (stores[i].storeName.toLowerCase() === storeName.toLowerCase()) {
+        alert('Error. ' + storeName + ' already exists.');
+        return;
+      }
     }
 
     // Delete the last row, then recalculate it
