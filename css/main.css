@@ -54,12 +54,11 @@ h2, h3, h4, h5, h6 {
  * Navigation menu common between both pages
  */
 .nav-menu ul {
-  text-align: right;
-  list-style: none;
+  width: 100%;
 }
 
-.nav-menu ul li {
-  display: inline;
+.nav-menu li {
+  width: calc(100% / 10);
 }
 
 /*
