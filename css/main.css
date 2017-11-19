@@ -61,23 +61,16 @@ h2, h3, h4, h5, h6 {
   width: calc(100% / 10);
 }
 
-/*
- * Logo image placed in header
- */
-.logo-image {
-  display: block;
-  float: left;
-  height: 50px;
-  margin-bottom: 0px;
-  margin-top: 0px;
+.nav-menu ul, .nav-menu li {
+ padding: 0px;
+ margin: 0px;
+ text-align: center;
+ display: inline-block;
+ vertical-align: top;
 }
 
-/*
- * Text used in header/footer
- */
-.logo-text {
-  font-family: 'Patua One';
-  color: #ff8b31;
+#location, #contact, #about {
+  text-align: center;
 }
 
 /*
