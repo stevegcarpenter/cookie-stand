@@ -74,18 +74,15 @@ h2, h3, h4, h5, h6 {
 }
 
 /*
- * Family picture on main page
+ * All pictures in the rows
  */
-#family-pic,
-#shirt-pic,
-#fishies-pic {
-  height: 300px;
+.row-pic {
+  height: 200px;
 }
 
 /*
  * Form styling
  */
-
 /*
  * The only table is on the Sales page
  */
@@ -94,28 +91,26 @@ table {
   width: 60%;
 }
 
-th,
-td {
+th, td {
   text-align: left;
   padding: 8px;
 }
 
-tr:nth-child(even) {
+tr :nth-child(even) {
   background-color: #959292;
 }
 
 /*
- * Link styles inside header
+ * Link styles
  */
 a.header-link:link,
 a.header-link:visited,
 a.header-link:hover {
   text-decoration: none;
   font-weight: bold;
-  background-color: #292929;
-  color: #ff8b31;
+  color: #292929;
 }
 a.header-link:hover,
 a.header-link:active {
-  color: #fff;
+  color: #727272;
 }
