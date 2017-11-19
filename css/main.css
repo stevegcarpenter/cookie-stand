@@ -12,13 +12,15 @@
 body {
   width: 1000px;
   margin: auto;
+  align-items: auto;
 }
 
 header, footer {
-  background: #292929;
   width: 100%;
-  color: #ffffff;
+  text-align: center;
+  color: #292929;
   padding: 15px;
+  font-family: "Patua One", Helvetica;
 }
 
 header h1, header img, header ul {
