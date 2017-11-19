@@ -5,68 +5,77 @@
   white:       #ffffff;
   orange:      #ff8b31;
 */
+body {
+  width: 1000px;
+  margin: auto;
+}
+
 header, footer {
-    display: inline-block;
-    width: 98%;
-    background: #292929;
-    color: #ffffff;
-    padding: 15px;
+  background: #292929;
+  width: 100%;
+  color: #ffffff;
+  padding: 15px;
+}
+
+header h1, header img, header ul {
+  display: inline-block;
 }
 
 h1 {
-    font-family: "PT Sans", helvetica;
-    font-size: 24px;
-    color: #292929;
+  font-family: 'PT Sans', helvetica;
+  font-size: 24px;
+  color: #292929;
 }
 
 h2, h3, h4, h5, h6 {
-    font-family: "Montserrat", helvetica;
-    font-size: 20px;
-    color: #292929;
+  font-family: 'Montserrat', helvetica;
+  font-size: 20px;
+  color: #292929;
 }
 
 /*
  * Navigation menu common between both pages
  */
 .nav-menu ul {
-    text-align: right;
-    list-style: none;
+  text-align: right;
+  list-style: none;
 }
 
 .nav-menu ul li {
-    display: inline;
+  display: inline;
 }
 
 /*
  * Logo image placed in header
  */
 .logo-image {
-    display: block;
-    float: left;
-    height: 80px;
-    margin-bottom: 10px;
-    margin-top: 0px;
+  display: block;
+  float: left;
+  height: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 /*
  * Text used in header/footer
  */
 .logo-text {
-    font-family: "Patua One";
-    color: #ff8b31;
+  font-family: 'Patua One';
+  color: #ff8b31;
 }
 
 /*
  * Family picture on main page
  */
-#family-pic, #shirt-pic, #fishies-pic {
-    height: 300px;
+#family-pic,
+#shirt-pic,
+#fishies-pic {
+  height: 300px;
 }
 
 /*
  * Form styling
  */
-
 
 /*
  * The only table is on the Sales page
@@ -76,7 +85,8 @@ table {
   width: 60%;
 }
 
-th, td {
+th,
+td {
   text-align: left;
   padding: 8px;
 }
@@ -88,12 +98,15 @@ tr:nth-child(even) {
 /*
  * Link styles inside header
  */
-a.header-link:link, a.header-link:visited, a.header-link:hover {
-  text-decoration:  none;
-  font-weight:      bold;
+a.header-link:link,
+a.header-link:visited,
+a.header-link:hover {
+  text-decoration: none;
+  font-weight: bold;
   background-color: #292929;
-  color:            #ff8b31;
+  color: #ff8b31;
 }
-a.header-link:hover, a.header-link:active {
-  color:            #fff;
+a.header-link:hover,
+a.header-link:active {
+  color: #fff;
 }
