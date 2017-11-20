@@ -7,12 +7,12 @@
   gray:        #727272;
   light gray:  #959292;
   white:       #ffffff;
-  green:       #79F2F2;
+  green:       #79f2f2;
 */
+
 body {
   width: 1000px;
   margin: auto;
-  align-items: auto;
 }
 
 header, footer {
@@ -88,9 +88,6 @@ h2, h3, h4, h5, h6 {
 }
 
 /*
- * Form styling
- */
-/*
  * The only table is on the Sales page
  */
 table {
@@ -124,6 +121,9 @@ a.header-link:active {
   color: #727272;
 }
 
+#projected-sales-section {
+  margin-left: -60px;
+}
 
 .sales-headings {
   text-align: center;
