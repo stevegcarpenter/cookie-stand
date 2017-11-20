@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pat's Salmon Cookies | Statistics</title>
+    <title>Pat's Salmon Cookies | Sales</title>
+    <link rel="icon" href="../img/fish-favicon.png">
     <link rel="stylesheet" href="../css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|PT+Sans|Patua+One|Roboto+Slab" rel="stylesheet">
   </head>
   <body>
+    <!-- Header & Nav section -->
     <header>
-      <section>
-        <h1><a class="header-link logo-text" href="../index.html">Pat's Salmon Cookies</a></h1>
-        <img class="logo-image" src="../img/salmon.png" alt="salmon fish logo">
-      </section>
       <nav class="nav-menu">
         <ul>
           <li><a class="header-link logo-text" href="../index.html">Home</a></li>
-          <li><a class="header-link logo-text" href="../html/sales.html">Sales</a></li>
+          <li><a class="header-link logo-text" href="../index.html#menu">Menu</a></li>
+          <li><a class="header-link logo-text" href="../index.html#cust">Customers</a></li>
+          <li><a class="header-link logo-text" href="../index.html#merch">Merchandise</a></li>
+          <li><a class="header-link logo-text" href="sales.html">Sales</a></li>
+          <li><a class="header-link logo-text" href="stylesheet.html">Stylesheet</a></li>
+          <li><a class="header-link logo-text" href="../index.html#location">Location</a></li>
+          <li><a class="header-link logo-text" href="../index.html#about">About</a></li>
+          <li><a class="header-link logo-text" href="../index.html#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
-    <main class="container">
-      <section id="projected-sales-section">
-        <h1>New Stores Coming</h1>
+    <main class="sales-container">
+      <!-- Users can add new stores -->
+      <section id="new-store-section">
+        <h1 class="sales-headings">New Stores Coming</h1>
         <form id="main-form">
-          <legend>New Store Details</legend>
-          <label>
-            Store Name:<br>
-            <input type="text" name="storeName"><br>
-          </label>
-          <label>
-            Min Cust Per Hour:<br>
-            <input type="number" name="minCust"><br>
-          </label>
-          <label>
-            Max Cust Per Hour:<br>
-            <input type="number" name="maxCust"><br>
-          </label>
-          <label>
-            Avg Cookies Per Customer:<br>
-            <input type="number" step="any" name="avgCookiesPerSale"><br>
-          </label>
+          <input placeholder="Store Name" type="text" name="storeName">
+          <input placeholder="Min Cust" type="number" name="minCust">
+          <input placeholder="Max Cust" type="number" name="maxCust">
+          <input placeholder="Average Cookies" type="number" step="any" name="avgCookiesPerSale">
           <button type="submit">Submit</button>
         </form>
-        <h1>Cookie Stand Projected Sales</h1>
+      </section>
+      <!-- Projected cookie sales table inserted below -->
+      <section id="projected-sales-section">
+        <h1 class="sales-headings">Cookie Stand Projected Sales</h1>
         <!-- Sales Projectsion Table -->
         <table id="main-table"></table>
       </section>

@@ -1,78 +1,109 @@
 /*
+  Header/Footer font-family: Patua One
+  h1 .. h6 font-family: PT Sans
+  p font-family: Roboto Slab
+
   dark gray:   #292929;
   gray:        #727272;
   light gray:  #959292;
   white:       #ffffff;
-  orange:      #ff8b31;
+  green:       #395f74;
 */
+
+body {
+  width: 1000px;
+  margin: auto;
+}
+
 header, footer {
-    display: inline-block;
-    width: 98%;
-    background: #292929;
-    color: #ffffff;
-    padding: 15px;
+  width: 100%;
+  text-align: center;
+  color: #292929;
+  padding: 15px;
+  font-family: "Patua One", Helvetica;
+}
+
+header h1, header img, header ul {
+  display: inline-block;
 }
 
 h1 {
-    font-family: "PT Sans", helvetica;
-    font-size: 24px;
-    color: #292929;
+  font-family: "PT Sans", helvetica;
+  font-size: 28px;
+  color: #727272;
 }
 
 h2, h3, h4, h5, h6 {
-    font-family: "Montserrat", helvetica;
-    font-size: 20px;
-    color: #292929;
+  font-family: 'Montserrat', helvetica;
+  font-size: 26px;
+  color: #959595;
+}
+
+p {
+  font-family: "Roboto Slab", "Times New Roman", Georgia;
+}
+
+#main-logo {
+  font-family: "Patua One", Helvetica;
+  font-size: 32px;
+  color: #395f74;
+}
+
+.sales-container {
+  height: 1000px;
+}
+.sales-container section {
+  margin: 20px 0px;
+}
+
+#fly-fishing {
+  width: 100%;
+}
+
+.section-2-column {
+  display: inline-block;
+  width: calc(100% / 3);
+  margin: 5% 0;
+  margin-left: calc((100% / 3) / 3);
 }
 
 /*
  * Navigation menu common between both pages
  */
 .nav-menu ul {
-    text-align: right;
-    list-style: none;
+  width: 100%;
 }
 
-.nav-menu ul li {
-    display: inline;
+.nav-menu li {
+  width: calc(100% / 10);
 }
 
-/*
- * Logo image placed in header
- */
-.logo-image {
-    display: block;
-    float: left;
-    height: 80px;
-    margin-bottom: 10px;
-    margin-top: 0px;
+.nav-menu ul, .nav-menu li {
+ padding: 0px;
+ margin: 0px;
+ text-align: center;
+ display: inline-block;
+ vertical-align: top;
 }
 
-/*
- * Text used in header/footer
- */
-.logo-text {
-    font-family: "Patua One";
-    color: #ff8b31;
+#location, #contact, #about {
+  text-align: center;
 }
 
 /*
- * Family picture on main page
+ * All pictures in the rows
  */
-#family-pic, #shirt-pic, #fishies-pic {
-    height: 300px;
+.row-pic {
+  height: 200px;
 }
-
-/*
- * Form styling
- */
-
 
 /*
  * The only table is on the Sales page
  */
 table {
   border-collapse: collapse;
+  border: 4px solid;
+  border-color: #395f74;
   width: 60%;
 }
 
@@ -81,19 +112,98 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even) {
+tr :nth-child(even) {
   background-color: #959292;
 }
 
 /*
- * Link styles inside header
+ * Link styles
  */
-a.header-link:link, a.header-link:visited, a.header-link:hover {
-  text-decoration:  none;
-  font-weight:      bold;
-  background-color: #292929;
-  color:            #ff8b31;
+a.header-link:link,
+a.header-link:visited,
+a.header-link:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #292929;
 }
-a.header-link:hover, a.header-link:active {
-  color:            #fff;
+a.header-link:hover,
+a.header-link:active {
+  color: #727272;
+}
+
+#projected-sales-section {
+  margin-left: -60px;
+}
+
+.sales-headings {
+  text-align: center;
+}
+
+/*
+ * Input Field Styling
+ */
+input {
+  margin: 8px 0;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #959292;
+  color: white;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+button {
+  background-color: #395f74;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/*
+ * Color palette classes for stylesheet
+ */
+.palette {
+  float: left;
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  border: 3px solid rgba(0, 0, 0, .2);
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-family: Helvetica;
+}
+
+.dark-gray {
+  background: #292929;
+}
+.gray {
+  background: #727272;
+}
+.light-gray {
+  background: #959292;
+}
+.white {
+  background: #ffffff;
+  font-family: helvetica;
+  color: black;
+}
+.green {
+  background: #395f74;
 }
