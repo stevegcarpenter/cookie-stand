@@ -7,7 +7,7 @@
   gray:        #727272;
   light gray:  #959292;
   white:       #ffffff;
-  orange:      #ff8b31;
+  green:       #79F2F2;
 */
 body {
   width: 1000px;
@@ -37,6 +37,13 @@ h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', helvetica;
   font-size: 26px;
   color: #959595;
+}
+
+.sales-container {
+  height: 1000px;
+}
+.sales-container section {
+  margin: 20px 0px;
 }
 
 #fly-fishing {
@@ -88,6 +95,8 @@ h2, h3, h4, h5, h6 {
  */
 table {
   border-collapse: collapse;
+  border: 4px solid;
+  border-color: #79F2F2;
   width: 60%;
 }
 
@@ -113,4 +122,45 @@ a.header-link:hover {
 a.header-link:hover,
 a.header-link:active {
   color: #727272;
+}
+
+
+.sales-headings {
+  text-align: center;
+}
+
+/*
+ * Input Field Styling
+ */
+input {
+  margin: 8px 0;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  background-color: #959292;
+  color: white;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+button {
+  background-color: #79F2F2;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
