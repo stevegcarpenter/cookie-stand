@@ -7,7 +7,7 @@
   gray:        #727272;
   light gray:  #959292;
   white:       #ffffff;
-  green:       #79f2f2;
+  green:       #395f74;
 */
 
 body {
@@ -28,7 +28,7 @@ header h1, header img, header ul {
 }
 
 h1 {
-  font-family: 'PT Sans', helvetica;
+  font-family: "PT Sans", helvetica;
   font-size: 28px;
   color: #727272;
 }
@@ -103,7 +103,7 @@ p {
 table {
   border-collapse: collapse;
   border: 4px solid;
-  border-color: #79F2F2;
+  border-color: #395f74;
   width: 60%;
 }
 
@@ -165,7 +165,7 @@ input {
 }
 
 button {
-  background-color: #79F2F2;
+  background-color: #395f74;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -173,4 +173,37 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+}
+
+/*
+ * Color palette classes for stylesheet
+ */
+.palette {
+  float: left;
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+  border: 3px solid rgba(0, 0, 0, .2);
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-family: Helvetica;
+}
+
+.dark-gray {
+  background: #292929;
+}
+.gray {
+  background: #727272;
+}
+.light-gray {
+  background: #959292;
+}
+.white {
+  background: #ffffff;
+  font-family: helvetica;
+  color: black;
+}
+.green {
+  background: #395f74;
 }
